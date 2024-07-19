@@ -34,7 +34,7 @@ This PowerShell script processes users from a CSV file and fetches information a
    - Navigate to the directory containing the script.
    - Run the script:
      ```powershell
-     .\YourScriptName.ps1
+     .\CMS_SharePoint_Inventory.ps1
      ```
    - Authenticate using Admin account
    - The script will connect to your SharePoint tenant, process the users, and export the results to `CMSSPSites.csv` in the same directory.
