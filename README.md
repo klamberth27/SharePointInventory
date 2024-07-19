@@ -54,6 +54,5 @@ This PowerShell script processes users from a CSV file and fetches information a
 ## Additional Notes
 
 - This script is designed to be run in an environment with access to the SharePoint Online Management Shell.
-- Modify the script as needed to suit your requirements.
 
 ---
