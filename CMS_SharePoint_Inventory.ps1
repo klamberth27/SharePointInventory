@@ -80,7 +80,9 @@ if($UsersList.Count -gt 0)
                     $details = @{            
                     
                         SharePointSite       = $currentSite.Url
-
+                        
+                        LastContentModifiedDate = $currentSite.LastContentModifiedDate
+                        
                         SiteUsersEmail       = $spUsers.LoginName -join ";"
 
                         SiteUsersName        = $spUsers.DisplayName -join ","
