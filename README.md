@@ -21,7 +21,7 @@ This PowerShell script processes users from a CSV file and fetches information a
      ```
 
 2. **Prepare the CSV File**:
-   - Ensure you have a `Users.csv` file in the same directory as the script.
+   - Ensure you have a `Users.csv` file in the same directory as the script. (example file uploaded)
    - The CSV file should have the following structure:
      ```
      UserEmail
