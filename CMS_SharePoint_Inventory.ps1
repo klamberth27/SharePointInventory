@@ -67,7 +67,7 @@ if($UsersList.Count -gt 0)
 
             foreach($currentSite in $AllSites)
             {
-                Write-Host "Processing Team $($currentSite.Url)"
+                Write-Host "Processing Site $($currentSite.Url)"
 
                 $queryUser = Get-SPOUser -Site $currentSite.Url | ?{$_.LoginName -eq $CMSUser.'UserEmail'}
 
