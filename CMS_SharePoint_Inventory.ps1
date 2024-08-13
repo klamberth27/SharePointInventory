@@ -32,6 +32,7 @@ $XLloc = "$myDir\"
 $ReportsPath = "$myDir\"
 
 $results = @()
+$exceptionSites = @()
 
 try
 {
@@ -69,7 +70,7 @@ if($UsersList.Count -gt 0)
             {
                 Write-Host "Processing Site $($currentSite.Url)"
 
-                $queryUser = Get-SPOUser -Site $currentSite.Url | ?{$_.LoginName -eq $CMSUser.'UserEmail'}
+                $queryUser = Get-SPOUser -Site $currentSite.Url -Limit All | ?{$_.LoginName -eq $CMSUser.'UserEmail'}
 
                 #Get-SPOUser -Site "" | ?{$_.LoginName -eq "" -and $_.Groups.Count -gt 0}
                         
@@ -98,11 +99,21 @@ if($UsersList.Count -gt 0)
         catch
         {
             Write-Host "Exception occured " $currentSite.DisplayName -BackgroundColor Black -ForegroundColor Red
+            $exceptionObject = @{            
+            
+                        SharePointSite       = $currentSite.Url                                            
+            }
+
+            $exceptionSites += New-Object PSObject -Property $exceptionObject   
             continue
         }
     }
 }
 
 $results | export-csv -Path "$($XLloc)\CMSSPSites.csv" -NoTypeInformation
+
+#Export exception sites
+$exceptionSites | export-csv -Path "$($XLloc)\ExceptionSPSites.csv" -NoTypeInformation
+
 
 
